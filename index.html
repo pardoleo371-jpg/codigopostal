@@ -71,8 +71,10 @@
 
             <input 
                 type="text"
+                id="cp"
                 pattern="[0-9]{5}"
                 maxlength="5"
+                inputmode="numeric"
                 placeholder="Ejemplo: 12345"
                 required
             >
@@ -84,10 +86,17 @@
     </div>
 
     <script>
+
+        // SOLO PERMITE NÚMEROS
+        document.getElementById("cp").addEventListener("input", function(){
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
         function validar(event){
             event.preventDefault();
             alert("Código Postal válido");
         }
+
     </script>
 
 </body>
